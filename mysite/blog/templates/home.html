@@ -1,0 +1,44 @@
+<html>
+<head>
+<title> blog </title>
+<style>
+*{background-color:white;}
+div.chat {
+text-align:right;
+background-color:grey;
+color:black;
+ padding:5px;
+ margin:20px;
+border:1px solid green;
+
+}
+div.container{
+
+background-color:white;
+color:white;
+ padding:30px;
+margin: auto;
+overflow-y:auto;
+height:500px;
+width: 30%;
+border:1px solid grey;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+{% for post in POSTS %}
+<div class="chat">
+
+    <a href="{% url 'blog:PostDetails' pk=post.id%}"> {{ post.title}}</a>
+</div>
+{% endfor %}
+<a href="{% url 'blog:CreatePost'%}">add new post</a>
+
+
+</div>
+
+</body>
+</html>
